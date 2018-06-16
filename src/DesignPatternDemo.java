@@ -1,25 +1,29 @@
 import java.util.Scanner;
 
-//  A 
+//  Demos for Structural, Creation and and Behavioral Design Patterns in Java
 public class DesignPatternDemo {
 
 	public static void main(String[] args) {
-		System.out.println("Menu: ");
-		System.out.println("1.Behavioral");
+		menu(); 
+	}
+
+	private static void menu() {
+		System.out.println("\nMenu: ");
+		System.out.println("1.Structural");
 		System.out.println("2.Creational");
-		System.out.println("3.Structural");
+		System.out.println("3.Behavioral");
 		Scanner menuChoice = new Scanner(System.in);
 		int patterSubType = menuChoice.nextInt(); 
 		
 		switch(patterSubType) {
-		case 1: behavioral();
+		case 1: structural();
 			break;
 		case 2: creational();
 			break;
-		case 3: structural();
+		case 3: behavioral();
 			break;
 		}
-		menuChoice.close();			 
+		menuChoice.close();				
 	}
 
 	private static void structural() {
@@ -57,30 +61,39 @@ public class DesignPatternDemo {
 		
 		// The Decorator pattern allows us to add functionality to an already existing object without altering any of its structure.
 	 	// Simply wrapping the objects adds features.
-	 	Sandwich basic = new BasicSandwich();
+		System.out.println("\nThe Decorator pattern allows us to add functionality to an already existing object without altering any of its structure."+
+	 	"\nSimply wrapping the objects adds features.");
+	 	System.out.println("\nThis demo shows how an object representing a simple implememntation of a sandwich can further have features added to it by using the decorator pattern.\n");
+		Sandwich basic = new BasicSandwich();
 		System.out.println(basic.build());
 		Sandwich customSandwich = new DressingsDecorator(new ToppingsDecorator(new BasicSandwich()));
 		System.out.println(customSandwich.build());	
-		structural();
+		menu(); 
 	}
 	
 	private static void adapterDemo() {
 		// The adapter pattern acts like a link between different types of interfaces or between legacy code and newly added extensions to the. 
 		// It provides a common UI for the user to use instead of having to individually cater to them.
-				
+		System.out.println("\nThe adapter pattern acts like a link between different types of interfaces or between legacy code and newly added extensions to the. \n" + 
+				"It provides a common UI for the user to use instead of having to individually cater to them.");
+		System.out.println("\nThis demo shows how new implememntations of legacy code Shape in the form of shapes like a line and rectangle can be added using the Adapter pattern.");
+		System.out.println("The Adapter allows us to use the old legacy code without having to re write it.\n");
 		RectangleAdapter rectangle = new RectangleAdapter(new Rectangle());
 		LineAdapter line = new LineAdapter(new Line());
 		Shape[] shapes = {line, rectangle};
 		int x0 = 30, x1 = 9, y0 = 100, y1 = 40;
 		for(Shape shape : shapes) 
 		   shape.create(x0, y0, x1, y1);
-		structural();
+		menu(); 
 	}
 
 	private static void compositeDemo() {
 		  
  		// The Composite pattern allows us to arrange objects into tree structures to represent their hierarchy
  		// This allows individual and composition of objects to be treated as the same.
+		System.out.println("\nThe Composite pattern allows us to arrange objects into tree structures to represent their hierarchy\n" + 
+				"This allows individual and composition of objects to be treated as the same.\n");
+		System.out.println("\nThe demo of the Composite pattern shows the hierarchy between objects of type General Manager, Manager and interns.\n");
  		Employee marketingHead = new Manager("Daniel White","Head of Marketing", 25000);
  		Employee marketingIntern1 = new Intern("John Faverau","Marketing", 10000);
  		Employee marketingIntern2 = new Intern("David Attenbourough","Marketing", 15000);
@@ -93,33 +106,43 @@ public class DesignPatternDemo {
  		generalM.add(techHead);
  		generalM.add(marketingHead);
  		generalM.print();
- 		structural();
+ 		menu(); 
 	}
 
 	private static void bridgeDemo() {
 		// The Bridge pattern allows us to decouple an abstraction from its implementation allowing the two to work individually so different features can be added onto both 
      	// We can Draw the shape Circle with different attributes like the colour red and yellow as defined in the concrete bridge implementer classes.
      	// Adding another shape requires the implementation of the abstract class shape and its features as concrete bridge implementer classes.
-     	BuilderShapeClass redCircle = new BuilderPatternCircle(0, 0, 100, new RedCircle());
+     	System.out.println("\nThe Bridge pattern allows us to decouple an abstraction from its implementation allowing the two to work individually so different features can be added onto both \n" + 
+     			"We can Draw the shape Circle with different attributes like the colour red and yellow as defined in the concrete bridge implementer classes.\n" + 
+     			"Adding another shape requires the implementation of the abstract class shape and its features as concrete bridge implementer classes.\n");
+		BuilderShapeClass redCircle = new BuilderPatternCircle(0, 0, 100, new RedCircle());
      	BuilderShapeClass yellowCircle = new BuilderPatternCircle(0, 0, 100, new YellowCircle());
      	redCircle.draw();
      	yellowCircle.draw();
+     	menu(); 
 	}
 
 	private static void facadeDemo() {
 		// The Facade pattern allows us to create a single simplified interface to a different number of interfaces in a sub system.
 		// Making it easier for the user to access them 
+		System.out.println("\nThe Facade pattern allows us to create a single simplified interface to a different number of interfaces in a sub system.\n" + 
+				"Making it easier for the user to access them.");
+		System.out.println("\nThe demo shows how we can use one object to access different sub systems to print differnet shapes like a square, triangle and circle.\n");
 		Facade facade = new Facade();
 		 
 		facade.drawSquare();	
 		facade.drawTriangle();
 		facade.drawCircle();
-		structural();
+		menu(); 
 	}
 
 	private static void flyweightDemo() {
 		// The Fly Weight Pattern is used to keep track and reduce the large number of small objects created in applications.
 		// It re uses already existing objects and only creates a new one if its not found in its factory and cache 
+		System.out.println("\nThe Fly Weight Pattern is used to keep track and reduce the large number of small objects created in applications.\n" + 
+				"It re uses already existing objects and only creates a new one if its not found in its factory and cache. ");
+		System.out.println("\nThe demo shows a simple implementation of a simple online shopping portal. \nThe pattern is used to make sure thant every order doesnt result in the creation of a new object.\n");
 	    Inventory inv = new Inventory();
 		inv.carryOutOrder("Phone", 345);
 		inv.carryOutOrder("Car", 123);
@@ -134,7 +157,7 @@ public class DesignPatternDemo {
 		  
 		inv.process();
 		System.out.println( inv.status());
-		structural();
+		menu(); 
 	}
 
 	private static void creational() {
@@ -159,9 +182,9 @@ public class DesignPatternDemo {
 		case 5: abstractFactoryDemo();
 			break;
 		default : System.out.println("Error in choice.\nPlease try again\n");
-			structural();
+			creational();
 		}
-		menuChoice.close();		
+		menuChoice.close(); 		
 	}
 
 	private static void abstractFactoryDemo() {
@@ -170,6 +193,12 @@ public class DesignPatternDemo {
 		// The only types of objects that can be create are for the Cars, Bikes interfaces and the Abstract Factory 
  		// The type of Factory object is decided by using an object for the Factory Chooser class
  		// After which, the type of sub class can be determined
+		System.out.println("\nAbstract Factory Pattern provides an interface for creating more Factories.\n" + 
+				"It is responsible for creating a factory of related objects without revealing all the classes within each Factory.\n" + 
+				"The only types of objects that can be create are for the Cars, Bikes interfaces and the Abstract Factory.\n" + 
+				"The type of Factory object is decided by using an object for the Factory Chooser class\n" + 
+				"After which, the type of sub class can be determined.\n");
+		System.out.println("The demo showcases the implementation of an abstract factory to represent two different factories namel Cars and Bike with each having sub classes with different types of cars and bikes.\n");
  		AbstractFactory abstractFactoryObject = FactoryChooser.getFactory("Cars");		
  		
  		Cars carObject1 = abstractFactoryObject.getCarType("Audi R8");
@@ -185,7 +214,7 @@ public class DesignPatternDemo {
  				
  		Bikes bikeObject2 = abstractFactoryObject2.getBikeType("Harley Davidson Roadster");
  		bikeObject2.bikeType();	
- 		creational();
+ 		menu(); 
 	}
 
 	private static void factoryDemo() {    		
@@ -194,6 +223,11 @@ public class DesignPatternDemo {
 		// to choose which class to instantiate the object for.
 		// The only types of objects that can be create are for the Employee interface and the Factory class
 		// The type of Employee object is decided by using an object for the Factory class
+		System.out.println("\nThe Factory pattern work by allowing the user to create only type of object but utilising an interface which allows the sub classes within\n" + 
+				"to choose which class to instantiate the object for.\n" + 
+				"The only types of objects that can be create are for the Employee interface and the Factory class\n" + 
+				"The type of Employee object is decided by using an object for the Factory class.\n");
+		System.out.println("This is an example of a factory with 3 sub classes namely CEO, Manager and Intern.\n");
 		Factory factoryObject = new Factory();
 			
 		FactoryPatternEmployee CEOObject = factoryObject.getObjectType("CEO");
@@ -204,12 +238,15 @@ public class DesignPatternDemo {
 			
 		FactoryPatternEmployee internObject = factoryObject.getObjectType("Intern");
 		System.out.println(internObject.objectType());
-		creational();
+		menu(); 
 	}
 
 	private static void prototypeDemo() {
 		// The Prototype Pattern creates new objects by instantiating the objects with prototypes only once and form there on forward clones 
 		// the objects if new objects are require. Reducing the number of objects created which helps performance and cost issues.
+		System.out.println("\nThe Prototype Pattern creates new objects by instantiating the objects with prototypes only once and form there on forward clones \n" + 
+				"the objects if new objects are require. Reducing the number of objects created which helps performance and cost issues.");
+		System.out.println("This example displays the created clone objects for the two different shapes Rectangle and Square.\n");
 		PrototypeBuilder.initialisePrototypes();
 
 		PrototypePatternShape clonedRectangleObject = (PrototypePatternShape) PrototypeBuilder.getShape("1");
@@ -217,7 +254,7 @@ public class DesignPatternDemo {
 
 		PrototypePatternShape clonedSquareObject = (PrototypePatternShape) PrototypeBuilder.getShape("2");
 		System.out.println("Shape: " + clonedSquareObject.getType());	
-		creational();
+		menu(); 
 	}
 
 	private static void singletonDemo() {
@@ -227,9 +264,16 @@ public class DesignPatternDemo {
 		//SingletonClass singleObject = new SingletonClass();
 
 		// To access the single object for the single class you simply encapsulate it by calling the getInstance method from the Singleton class
-	    SingletonClass singleObject = SingletonClass.getInstance();
+	    System.out.println("\nThe Singleton Pattern revolves around one single class and ensures that only one instance of the class can be created for that class.\n" + 
+	    		"Making sure that the created instance is globally accessible.\n" + 
+	    		"The Singleton Pattern makes sure that statements like these cannot be executed and throws a compile time error if called:\n" + 
+	    		"	SingletonClass singleObject = new SingletonClass();\n" + 
+	    		"\n" + 
+	    		"To access the single object for the single class you simply encapsulate it by calling the getInstance method from the Singleton class.\n");
+	    System.out.println("This example simply shows how to acces the sungleton object and use to call its print method.\n");
+		SingletonClass singleObject = SingletonClass.getInstance();
 	    singleObject.print();
-	    creational();
+	    menu(); 
 		
 	}
 
@@ -249,7 +293,7 @@ public class DesignPatternDemo {
  		order2.typeOfSandwich(chickenTikkaSandwich);
  		order2.orderSandwich();
  		order2.deliverSandwich();	
- 		creational();
+ 		menu(); 
 	}
 
 	private static void behavioral() {
