@@ -306,28 +306,99 @@ public class DesignPatternDemo {
 
 	private static void behavioral() {
 		System.out.println("\nChoose which Behovioral Design Pattern you want to demo: ");
+		System.out.println("1.Chain Of Responsibility Pattern");
+		System.out.println("2.Command Pattern");
+		System.out.println("3.Interpreter Pattern");
+		System.out.println("4.Iterator Pattern");
+		System.out.println("5.Mediator Pattern");
 		System.out.println("1. Pattern");
+		System.out.println("1. Pattern");
+		System.out.println("1. Pattern");
+		System.out.println("1. Pattern");
+		System.out.println("1. Pattern");
+		System.out.println("1. Pattern");
+		
 		
 		Scanner menuChoice = new Scanner(System.in);
 		int patterSubType = menuChoice.nextInt(); 
 		
 		switch(patterSubType) {
-		case 1: adapterDemo();
+		case 1: chainOfResponsibilityDemo();
 			break;
-		case 2: bridgeDemo();
+		case 2: commandDemo();
 			break;
-		case 3: compositeDemo();
+		case 3: interpreterDemo();
 			break;
-		case 4: facadeDemo();
+		case 4: iteratorDemo();
 			break;
-		case 5: flyweightDemo();
+		case 5: mediatorDemo();
 			break;
-		case 6: decoratorDemo();
+		case 6: mementoDemo();
 			break;
+		case 7: observerDemo();
+			break;
+		case 8: stateDemo();
+			break;
+		case 9: stratergyDemo();
+			break;
+		case 10: templateMethodDemo();
+			break;
+		case 11: visitorDemo();
+			break;	
 		default : System.out.println("Error in choice.\nPlease try again");
 			structural();
 		}
 		menuChoice.close();
+		
+	}
+
+	private static void templateMethodDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void stratergyDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void stateDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void observerDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void mementoDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void mediatorDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void iteratorDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void interpreterDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void commandDemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void chainOfResponsibilityDemo() {
+		// TODO Auto-generated method stub
 		
 	}
 
