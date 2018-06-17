@@ -311,12 +311,12 @@ public class DesignPatternDemo {
 		System.out.println("3.Interpreter Pattern");
 		System.out.println("4.Iterator Pattern");
 		System.out.println("5.Mediator Pattern");
-		System.out.println("1. Pattern");
-		System.out.println("1. Pattern");
-		System.out.println("1. Pattern");
-		System.out.println("1. Pattern");
-		System.out.println("1. Pattern");
-		System.out.println("1. Pattern");
+		System.out.println("6.Memento Pattern");
+		System.out.println("7.Observer Pattern");
+		System.out.println("8.State Pattern");
+		System.out.println("9.Stratergy Pattern");
+		System.out.println("10.Template Method Pattern");
+		System.out.println("11.Visitor Pattern");
 		
 		
 		Scanner menuChoice = new Scanner(System.in);
@@ -349,6 +349,11 @@ public class DesignPatternDemo {
 			structural();
 		}
 		menuChoice.close();
+		
+	}
+
+	private static void visitorDemo() {
+		// TODO Auto-generated method stub
 		
 	}
 
