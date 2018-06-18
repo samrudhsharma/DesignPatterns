@@ -305,25 +305,24 @@ public class DesignPatternDemo {
 	}
 
 	private static void behavioral() {
-		System.out.println("\nChoose which Behovioral Design Pattern you want to demo: ");
-		System.out.println("1.Chain Of Responsibility Pattern");
-		System.out.println("2.Command Pattern");
-		System.out.println("3.Interpreter Pattern");
-		System.out.println("4.Iterator Pattern");
-		System.out.println("5.Mediator Pattern");
-		System.out.println("6.Memento Pattern");
-		System.out.println("7.Observer Pattern");
-		System.out.println("8.State Pattern");
-		System.out.println("9.Stratergy Pattern");
-		System.out.println("10.Template Method Pattern");
-		System.out.println("11.Visitor Pattern");
+	  System.out.println("\nChoose which Behovioral Design Pattern you want to demo: ");
+	  System.out.println("1.Chain Of Responsibility Pattern");
+	  System.out.println("2.Command Pattern");
+	  System.out.println("3.Interpreter Pattern");
+	  System.out.println("4.Iterator Pattern");
+	  System.out.println("5.Mediator Pattern");
+      System.out.println("6.Memento Pattern");
+	  System.out.println("7.Observer Pattern");
+	  System.out.println("8.State Pattern");
+	  System.out.println("9.Stratergy Pattern");
+	  System.out.println("10.Template Method Pattern");
+	  System.out.println("11.Visitor Pattern");
 		
+	  Scanner menuChoice = new Scanner(System.in);
+	  int patterSubType = menuChoice.nextInt(); 
 		
-		Scanner menuChoice = new Scanner(System.in);
-		int patterSubType = menuChoice.nextInt(); 
-		
-		switch(patterSubType) {
-		case 1: chainOfResponsibilityDemo();
+      switch(patterSubType) {
+	    case 1: chainOfResponsibilityDemo();
 			break;
 		case 2: commandDemo();
 			break;
@@ -347,9 +346,8 @@ public class DesignPatternDemo {
 			break;	
 		default : System.out.println("Error in choice.\nPlease try again");
 			structural();
-		}
-		menuChoice.close();
-		
+	  }
+	  menuChoice.close();	
 	}
 
 	private static void visitorDemo() {
@@ -398,29 +396,43 @@ public class DesignPatternDemo {
 	}
 
 	private static void commandDemo() {
-		// TODO Auto-generated method stub
-		
+	  System.out.println("\nThe command Patterns allows us to encapsulate a request from the client as an object. Each command is used to invoke the appropriate object/method"
+	  		+ "\nwhich can carr out the request. This allows the parameteriaztion of clients with different requests.");
+	  System.out.println("\nThis example is an implementation of a stock broker sysytem where you can buy or sell stock. With buying ans selling being the commands in a "
+	  		+ "\nrequest.");
+	  
+	  Stock stock = new Stock();
+
+      BuyStock buyStockCommand = new BuyStock(stock);
+      SellStock sellStockCommand = new SellStock(stock);
+
+      // Both these statements/commands make up one request 
+      CommandExecutor stockRequest = new CommandExecutor();
+      stockRequest.takeCommand(buyStockCommand);
+      stockRequest.takeCommand(sellStockCommand);
+
+      stockRequest.placeRequest();
 	}
 
 	private static void chainOfResponsibilityDemo() {
-		System.out.println("The Chain Of Responsibility pattern works by creating a chain of receiver objects for any generated request from the user."
+	  System.out.println("\nThe Chain Of Responsibility pattern works by creating a chain of receiver objects for any generated request from the user."
 				+ "\nAllowing more than one object the opportunity to handle the request. Each object chains the receving object and passes the request"
 				+ "along the chain until an object handles it.");
-		System.out.println("\nThis is an example of the Chain Of Responsibility pattern where a currency amount is taken in and displays in how many notes"
+	  System.out.println("\nThis is an example of the Chain Of Responsibility pattern where a currency amount is taken in and displays in how many notes"
 				+ "of 100, 50 and 10 can the amount be divided."
 				+ "\nEach denomination representing an object in the chain and only processing its part before passing it down the chain.");
 		
-		ChainHandler chainBuilder = new ChainHandler();
+	  ChainHandler chainBuilder = new ChainHandler();
 		
-		int amount = 0;
-		System.out.println("\nEnter the amount");
-		Scanner input = new Scanner(System.in);
-		amount = input.nextInt();
-		input.close();
-		if(amount % 10 != 0) {
-		  System.out.println("Please enter an amount as a multiple of 10.");
-		  return;
-		}
-		chainBuilder.link1.numberOfNotes(new Currency(amount));
+	  int amount = 0;
+	  System.out.println("\nEnter the amount");
+	  Scanner input = new Scanner(System.in);
+	  amount = input.nextInt();
+	  input.close();
+	  if(amount % 10 != 0) {
+	    System.out.println("Please enter an amount as a multiple of 10.");
+	    return;
+	  }
+	  chainBuilder.link1.numberOfNotes(new Currency(amount));
 	}
 }
