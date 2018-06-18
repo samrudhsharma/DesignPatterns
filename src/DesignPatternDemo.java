@@ -403,8 +403,26 @@ public class DesignPatternDemo {
 	}
 
 	private static void chainOfResponsibilityDemo() {
-		// TODO Auto-generated method stub
+		System.out.println("The Chain Of Responsibility pattern works by creating a chain of receiver objects for any generated request from the user."
+				+ "\nAllowing more than one object the opportunity to handle the request. Each object chains the receving object and passes the request"
+				+ "along the chain until an object handles it.");
+		System.out.println("\nThis is an example of the Chain Of Responsibility pattern where a currency amount is taken in and displays in how many notes"
+				+ "of 100, 50 and 10 can the amount be divided."
+				+ "\nEach denomination representing an object in the chain and only processing its part before passing it down the chain.");
 		
+		ChainHandler chainBuilder = new ChainHandler();
+		while(true) {
+		  int amount = 0;
+		  System.out.println("\nEnter the amount");
+		  Scanner input = new Scanner(System.in);
+		  amount = input.nextInt();
+		  input.close();
+		  if(amount % 10 != 0) {
+			System.out.println("Please enter an amount as a multiple of 10.");
+			return;
+		  }
+		  chainBuilder.link1.numberOfNotes(new Currency(amount));
+		}
 	}
 
 }
