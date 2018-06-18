@@ -411,18 +411,16 @@ public class DesignPatternDemo {
 				+ "\nEach denomination representing an object in the chain and only processing its part before passing it down the chain.");
 		
 		ChainHandler chainBuilder = new ChainHandler();
-		while(true) {
-		  int amount = 0;
-		  System.out.println("\nEnter the amount");
-		  Scanner input = new Scanner(System.in);
-		  amount = input.nextInt();
-		  input.close();
-		  if(amount % 10 != 0) {
-			System.out.println("Please enter an amount as a multiple of 10.");
-			return;
-		  }
-		  chainBuilder.link1.numberOfNotes(new Currency(amount));
+		
+		int amount = 0;
+		System.out.println("\nEnter the amount");
+		Scanner input = new Scanner(System.in);
+		amount = input.nextInt();
+		input.close();
+		if(amount % 10 != 0) {
+		  System.out.println("Please enter an amount as a multiple of 10.");
+		  return;
 		}
+		chainBuilder.link1.numberOfNotes(new Currency(amount));
 	}
-
 }
