@@ -371,8 +371,22 @@ public class DesignPatternDemo {
 	}
 
 	private static void observerDemo() {  
-	  System.out.println("\n");
-	  System.out.println("\n\n");	
+	  System.out.println("\nThe Observer Patter is used if an object has a one-to-many relation i.e. more than one object depend on the state of a single object."
+	  		+ "\nThe patytern helps notify and update all the dpendant objects if there is a change in state of the main object.");
+	  System.out.println("\nIn this example a change in an integer number prompt automated conversions of the number to binary, hex and octa decimal using the Observer Pattern.\n");
+	  
+	  Subject subject = new Subject();
+      // Client decides how many and what type of observers/listeners they want on their subject
+      new HexListener(subject);
+      new OctListener(subject);
+      new BinaryListener(subject);
+     
+      int number = 10;
+      System.out.print("Number: "+number+"\n");
+      subject.setState(number);
+      number = 100;
+      System.out.print("\nNow the number is: "+number+"\n");
+      subject.setState(number);
 	}
 
 	private static void mementoDemo() {  
