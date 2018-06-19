@@ -345,49 +345,57 @@ public class DesignPatternDemo {
 		case 11: visitorDemo();
 			break;	
 		default : System.out.println("Error in choice.\nPlease try again");
-			structural();
+				  behavioral();
 	  }
 	  menuChoice.close();	
 	}
 
-	private static void visitorDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void visitorDemo() { 
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
-	private static void templateMethodDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void templateMethodDemo() { 
+	  System.out.println("\n");
+	  System.out.println("\n\n");		
 	}
 
-	private static void stratergyDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void stratergyDemo() { 
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
-	private static void stateDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void stateDemo() {  
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
-	private static void observerDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void observerDemo() {  
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
-	private static void mementoDemo() {
-		// TODO Auto-generated method stub
-		
+	private static void mementoDemo() {  
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
 	private static void mediatorDemo() {
-		// TODO Auto-generated method stub
-		
+	  System.out.println("\n");
+	  System.out.println("\n\n");	
 	}
 
 	private static void iteratorDemo() {
-		// TODO Auto-generated method stub
-		
+	  System.out.println("\nThe Iterator Pattern provides a way to access the elements of a collection class object in a sequential order without exposing the "
+	  		+ "\nits underlying representation to the client. The client only uses the iterator methods to traverse over the collection object. ");
+	  System.out.println("\nThe following is an example of how the Iterator pattern is used to iterate over a collection which stores names in a sequence\n");
+	  
+	  NameCollection nameCollection = new NameCollection();
+
+      for(Iterator nameIterator = nameCollection.getNameIterator(); nameIterator.hasNext();){
+         String name = (String) nameIterator.getNext();
+         System.out.println("Name: " + name);
+      } 	
 	}
 
 	private static void interpreterDemo() {
