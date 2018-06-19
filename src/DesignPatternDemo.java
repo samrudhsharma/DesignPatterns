@@ -381,8 +381,21 @@ public class DesignPatternDemo {
 	}
 
 	private static void mediatorDemo() {
-	  System.out.println("\n");
-	  System.out.println("\n\n");	
+	  System.out.println("\nThe Mediator Pattern is used to reduce communication complexity when there are a large number of classes involved. It does this"
+	  		+ "\nby providing a single object that defines the how the set of objects interact with each other, supporting easy maintainance by not allowing"
+	  		+ "\nobjects to explicitly call each other. ");
+	  System.out.println("\nThis is an example of a group chat room. Where each user can send a message and it will be received by all the members\n");
+	  
+	  Mediator mediator = new MediatorImplementation();
+	  User user1 = new UserImplementation(mediator, "Samrudh");
+	  User user2 = new UserImplementation(mediator, "Calum");
+	  User user3 = new UserImplementation(mediator, "Siddharth");
+
+	  mediator.createUser(user1);
+	  mediator.createUser(user2);
+	  mediator.createUser(user3);
+		
+	  user3.sendMessage("This is an example of the Mediator Pattern.");
 	}
 
 	private static void iteratorDemo() {
