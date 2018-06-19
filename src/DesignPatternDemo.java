@@ -1,6 +1,6 @@
+//  Demos for Structural, Creation and and Behavioral Design Patterns in Java
 import java.util.Scanner;
 
-//  Demos for Structural, Creation and and Behavioral Design Patterns in Java
 public class DesignPatternDemo {
 
 	public static void main(String[] args) {
@@ -391,13 +391,22 @@ public class DesignPatternDemo {
 	}
 
 	private static void interpreterDemo() {
-		// TODO Auto-generated method stub
+	  System.out.println("\nThe Interpreter Pattern allows us to interpret an expression for any unquiely defined language as long as each term in the expression is"
+	  		+ "\n represented in the grammar of the language.");
+	  System.out.println("\nThis is an example of an implementation of the interpreter pattern which converts an integer to decimal or hex."
+	  		+ "\nExpressions take the form of: '(number) in Decimal/Hexadecimal', returning the number in the format mentioned at the end. \n");
+	  
+	  String expression1 = "16 in Binary";
+	  String expression2 = "84 in Hexadecimal";
 		
+	  StatementInterpreter statement = new StatementInterpreter(new Interpreter());
+	  System.out.println(expression1+" = "+statement.interpret(expression1));
+	  System.out.println(expression2+" = "+statement.interpret(expression2));
 	}
 
 	private static void commandDemo() {
-	  System.out.println("\nThe command Patterns allows us to encapsulate a request from the client as an object. Each command is used to invoke the appropriate object/method"
-	  		+ "\nwhich can carr out the request. This allows the parameteriaztion of clients with different requests.");
+	  System.out.println("\nThe Command Pattern allows us to encapsulate a request from the client as an object. Each command is used to invoke the appropriate object/method"
+	  		+ "\nwhich can carry out the request. This allows the parameteriaztion of clients with different requests.");
 	  System.out.println("\nThis example is an implementation of a stock broker sysytem where you can buy or sell stock. With buying ans selling being the commands in a "
 	  		+ "\nrequest.");
 	  
