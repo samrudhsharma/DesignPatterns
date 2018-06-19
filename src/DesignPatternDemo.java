@@ -376,8 +376,31 @@ public class DesignPatternDemo {
 	}
 
 	private static void mementoDemo() {  
-	  System.out.println("\n");
-	  System.out.println("\n\n");	
+	  System.out.println("\nThe Memento Pattern allows an objects state to be captured so that, if needed, it can be returend to a previous state.");
+	  System.out.println("\nThis is a simple example that shows how the pattern can save, retreive and keep track of object states\n");	
+	  
+	  Originator originator = new Originator();
+      CareTaker careTaker = new CareTaker();
+      
+      originator.setState("Object State 1");
+      careTaker.addMemento(originator.saveAsMemento());
+      
+      originator.setState("Object State 2");
+      careTaker.addMemento(originator.saveAsMemento());
+      
+      originator.setState("Object State 3");
+      careTaker.addMemento(originator.saveAsMemento());
+      
+      originator.setState("Object State 4");
+      System.out.println("Current State: " + originator.getState());	
+      
+      originator.restoreState(careTaker.getMemento(0));
+      System.out.println("First saved State: " + originator.getState());
+      originator.restoreState(careTaker.getMemento(1));
+      System.out.println("Second saved State: " + originator.getState());
+      originator.restoreState(careTaker.getMemento(2));
+      System.out.println("Third saved State: " + originator.getState());
+      System.out.println("Current State after retreiving memento: " + originator.getState());
 	}
 
 	private static void mediatorDemo() {
