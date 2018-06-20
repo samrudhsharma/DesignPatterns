@@ -366,8 +366,17 @@ public class DesignPatternDemo {
 	}
 
 	private static void stateDemo() {  
-	  System.out.println("\n");
-	  System.out.println("\n\n");	
+	  System.out.println("\nThe State Pattern allows the development of objects that can alter their behaviour depending on their internal state. Which means that the object is"
+	  		+ "\nallowed to change class dependant on current state.");
+	  System.out.println("\nThe following example shows a system where a button is pressed to change its state from either ON or OFF to the other using the State Pattern. \n");
+	  
+	  Button button = new Button();
+	  System.out.println("Button is pressed");
+	  button.pressButton();
+	  System.out.println("Button is pressed again");
+	  button.pressButton();
+	  System.out.println("Button is pressed again");
+	  button.pressButton();
 	}
 
 	private static void observerDemo() {  
